@@ -1,0 +1,88 @@
+import type { FaqItem } from "./types";
+
+/** Answers follow Leen_Law_Group_Website_Build_Brief.pdf. Draft copy for owner and attorney review before launch. */
+export const faqs: FaqItem[] = [
+  {
+    id: "what-services",
+    group: "About Leen",
+    status: "published",
+    featured: true,
+    q: "What services does Leen Law Group provide?",
+    a: "Leen Law Group provides consumer-support and business-administration services. That means helping individuals and entrepreneurs organize records, follow administrative processes, prepare client-reviewed correspondence, and connect with appropriate licensed professionals. The specific services currently available are listed on our Services page, and every engagement has a written scope.",
+  },
+  {
+    id: "law-firm",
+    group: "About Leen",
+    status: "published",
+    featured: true,
+    q: "Is Leen Law Group a law firm?",
+    a: "No. Despite the name, Leen Law Group is not a law firm, does not employ attorneys to represent clients, and does not provide legal advice or legal representation. We provide administrative, consumer-support, and business-support services. For legal advice or representation, please consult a licensed attorney in your jurisdiction.",
+  },
+  {
+    id: "attorney-representation",
+    group: "Services & scope",
+    status: "published",
+    featured: true,
+    q: "Do you provide attorney representation?",
+    a: "No. We do not represent clients in court, negotiate legal claims as an attorney, or create an attorney-client relationship. Visiting this website, submitting an inquiry, or purchasing an administrative service does not create an attorney-client relationship.",
+  },
+  {
+    id: "what-is-admin-support",
+    group: "Services & scope",
+    status: "published",
+    featured: true,
+    q: "What is administrative support?",
+    a: "Administrative support is practical, organizational help: sorting and organizing records, building timelines, preparing correspondence from facts you provide (which you review and approve), tracking responses and deadlines, and identifying the right agencies or professionals. It does not include legal opinions, legal strategy, or representation.",
+  },
+  {
+    id: "request-process",
+    group: "Process",
+    status: "published",
+    featured: true,
+    q: "How does the request process work?",
+    a: "First, you submit a short request describing the help you need. We review whether it fits our service scope and jurisdiction. If it does, you receive a written description of the scope, exclusions, fees, and timing before any work begins. Only the documents needed for the agreed service are then collected through an appropriate secure channel. Finally, we complete the agreed administrative work or direct you to an appropriate professional.",
+  },
+  {
+    id: "credit-disputes",
+    group: "Services & scope",
+    status: "published",
+    q: "Can you assist with credit disputes?",
+    a: "Credit-dispute document assistance is a potential service that is under review and is not currently offered. Where it is offered, it is limited to helping you organize your own reports and records and prepare factual correspondence for your review about items you believe in good faith are inaccurate. No score increase or removal of accurate information is ever promised. You can always dispute inaccuracies directly with the credit bureaus at no cost.",
+  },
+  {
+    id: "business-startup",
+    group: "Services & scope",
+    status: "published",
+    q: "Do you provide business startup assistance?",
+    a: "Startup administration support, such as checklists, filing assistance using information you approve, EIN application guidance, and document organization, is part of our planned service model. Availability is confirmed during service review. We do not guarantee registration, EIN issuance, business credit, funding, grants, or contracts.",
+  },
+  {
+    id: "secure-documents",
+    group: "Privacy & documents",
+    status: "published",
+    featured: true,
+    q: "How do I submit documents securely?",
+    a: "Please do not send sensitive documents through the website form or by ordinary email. That includes Social Security numbers, full account numbers, ID documents, credit reports, medical records, and signed authorizations. If the agreed service requires documents, we will tell you exactly which ones are needed and provide an appropriate secure channel at that time.",
+  },
+  {
+    id: "when-attorney",
+    group: "Professional referrals",
+    status: "published",
+    q: "When should I contact a licensed attorney?",
+    a: "Contact a licensed attorney whenever you need legal advice about your rights or options, are facing or considering a lawsuit, have a court deadline, need a legal document drafted (such as a trust, will, or power of attorney), or need someone to negotiate or represent you. If your request involves any of these, we will tell you and help you identify an appropriate professional.",
+  },
+  {
+    id: "referrals",
+    group: "Professional referrals",
+    status: "published",
+    q: "How do professional referrals work?",
+    a: "When a matter needs a licensed attorney, tax professional, or other specialist, we explain why and help you identify an appropriate provider. Any referral relationship, including who performs the work and how any fee is handled, will be disclosed to you in writing before you proceed.",
+  },
+  {
+    id: "fees",
+    group: "Process",
+    status: "published",
+    q: "How much do services cost?",
+    a: "Fees depend on the scope of the work. You receive the proposed scope, exclusions, fees, and timing in writing before work begins, and nothing is charged before you agree.",
+  },
+];

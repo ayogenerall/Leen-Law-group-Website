@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* Design tokens */
+@theme {
+  --color-obsidian: #101114;
+  --color-charcoal: #191b1f;
+  --color-graphite: #24272d;
+  --color-iron: #34383f;
+  --color-turquoise: #20b8b0;
+  --color-turquoise-soft: #5fd3cc;
+  --color-deep-teal: #06706b;
+  --color-logo-gold: #e5cb5c;
+  --color-champagne: #d9bc56;
+  --color-soft-gold: #e8d18a;
+  --color-ivory: #f7f5ef;
+  --color-linen: #eeebe2;
+  --color-mist: #a8acb3;
+  --color-slate: #5a5f68;
+  --color-ink: #16181c;
+
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", serif;
+
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+
+  --ease-premium: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Base */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 6rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    background: var(--color-obsidian);
+    color: var(--color-ivory);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    /* Manrope turns "(c)" into ©, which breaks "508(c)(1)(A)" */
+    font-feature-settings: "calt" 0, "liga" 0;
+    font-variant-ligatures: none;
+  }
+  ::selection { background: var(--color-turquoise); color: var(--color-obsidian); }
+
+  /* Visible, consistent focus for every interactive element */
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-turquoise);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .surface-light :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline-color: var(--color-deep-teal);
+  }
+}
+
+/* Typography utilities */
+@layer components {
+  .t-display, .t-h1, .t-h2 { font-variant-numeric: lining-nums; }
+  .t-display { font-family: var(--font-serif); font-weight: 500; line-height: 1.02; letter-spacing: -0.01em; font-size: clamp(2.375rem, 1.5rem + 4.6vw, 5.5rem); }
+  .t-h1 { font-family: var(--font-serif); font-weight: 500; line-height: 1.05; letter-spacing: -0.01em; font-size: clamp(2.125rem, 1.5rem + 3.2vw, 4rem); }
+  .t-h2 { font-family: var(--font-serif); font-weight: 500; line-height: 1.1; font-size: clamp(1.875rem, 1.35rem + 2.1vw, 3rem); }
+  .t-h3 { font-family: var(--font-sans); font-weight: 600; line-height: 1.3; font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem); letter-spacing: -0.005em; }
+  .t-eyebrow { font-family: var(--font-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-champagne); }
+  .surface-light .t-eyebrow { color: #7d6518; } /* 5.0:1 on ivory */
+  .t-lead { font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem); line-height: 1.7; }
+
+  .container-x { width: 100%; max-width: 77.5rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 48rem) { .container-x { padding-inline: 1.5rem; } }
+
+  .section-y { padding-block: 4rem; }
+  @media (min-width: 64rem) { .section-y { padding-block: 6rem; } }
+
+  .prose-leen { max-width: 68ch; }
+  .prose-leen > * + * { margin-top: 1.1em; }
+  .prose-leen h2 { font-family: var(--font-serif); font-size: 1.9rem; line-height: 1.15; margin-top: 2.2em; }
+  .prose-leen h3 { font-weight: 600; font-size: 1.15rem; margin-top: 1.8em; }
+  .prose-leen ul { list-style: none; padding-left: 0; }
+  .prose-leen ul > li { position: relative; padding-left: 1.4em; }
+  .prose-leen ul > li + li { margin-top: 0.5em; }
+  .prose-leen ul > li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 0.5em; height: 1px; background: var(--color-champagne); }
+  .prose-leen a { color: var(--color-turquoise); text-decoration: underline; text-underline-offset: 3px; }
+  .surface-light .prose-leen a { color: var(--color-deep-teal); }
+
+  /* Subtle peacock-eye texture derived from the logo motif (pure CSS, decorative) */
+  .bg-plume {
+    background-image:
+      radial-gradient(ellipse 60% 70% at 85% 30%, rgb(32 184 176 / 0.14), transparent 65%),
+      radial-gradient(ellipse 40% 50% at 10% 90%, rgb(217 188 86 / 0.06), transparent 70%);
+  }
+  .hairline-gold { background: linear-gradient(90deg, transparent, var(--color-champagne) 20%, var(--color-champagne) 80%, transparent); height: 1px; }
+}
+
+/* Motion */
+@layer utilities {
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium); transition-delay: var(--reveal-delay, 0ms); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  .hero-line { opacity: 0; transform: translateY(0.4em); animation: hero-in 1.1s var(--ease-premium) forwards; animation-delay: var(--d, 0ms); }
+  @keyframes hero-in { to { opacity: 1; transform: none; } }
+  .draw-line { transform-origin: top; transform: scaleY(0); transition: transform 1.4s var(--ease-premium); }
+  .is-visible .draw-line, .draw-line.is-visible { transform: scaleY(1); }
+  @media (min-width: 64rem) {
+    .draw-line-x { transform-origin: left; transform: scaleX(0); transition: transform 1.6s var(--ease-premium); }
+    .is-visible .draw-line-x { transform: scaleX(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .hero-line { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+    .draw-line, .draw-line-x { transform: none !important; transition: none !important; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+  /* If JS never runs, content must still be visible */
+  .no-js .reveal { opacity: 1; transform: none; }
+}
+
+/* Native controls on light surfaces should render in light mode */
+.surface-light { color-scheme: light; }
